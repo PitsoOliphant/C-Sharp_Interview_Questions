@@ -4,33 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task2
+namespace FizzBuzz_assignment
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int greatestValue = 0;
-            int[] numbers = { 2, 5, 1, 22, 0 };
-            int temp;
-            for (int i = 0; i < numbers.Length-1; i++) 
-            {
-                for (int j = i+1;j<numbers.Length;j++) 
-                {
-                    if (numbers[i] < numbers[j])
-                    {
-                        temp = numbers[i];
-                        numbers[i] = numbers[j];
-                        numbers[j] = temp;
-                    }
+            string word = "";
 
+            for (int i = 1; i < 100; i++)
+            {
+                if (i % 3 == 0&&i%5==0)
+                {
+
+                    word = "FizzBuzz";
+                    Console.WriteLine(word);
+                  
+                }
+                else if (i % 5 == 0)
+                {
+                    word = "Buzz";
+                    Console.WriteLine(word);
 
                 }
-            }
-            
-            foreach (int i in numbers) 
-            {
-                Console.Write(i + " ");
+                else if (i % 3 == 0)
+                {
+                    word = "Fizz";
+                    Console.WriteLine(word);
+
+                }
+                else
+                {
+                    Console.WriteLine(i);  
+                }
+
+           
             }
             Console.ReadLine();
         }
