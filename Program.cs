@@ -4,41 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FizzBuzz_assignment
+namespace number_sorting
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string word = "";
-
-            for (int i = 1; i < 100; i++)
+            int[] numbers = { 5, 3, 20, 16, 2 };
+            int temp = 0;
+            for(int i=0;i<numbers.Length;i++)
             {
-                if (i % 3 == 0&&i%5==0)
+                for(int j=i+1;j<numbers.Length;j++)
                 {
-
-                    word = "FizzBuzz";
-                    Console.WriteLine(word);
-                  
+                    if (numbers[i]>numbers[j])
+                    {
+                        temp=numbers[i];
+                        numbers[i] = numbers[j];
+                        numbers[j] = temp;  
+                    }
                 }
-                else if (i % 5 == 0)
-                {
-                    word = "Buzz";
-                    Console.WriteLine(word);
-
-                }
-                else if (i % 3 == 0)
-                {
-                    word = "Fizz";
-                    Console.WriteLine(word);
-
-                }
-                else
-                {
-                    Console.WriteLine(i);  
-                }
-
-           
+            }
+            foreach( int i in numbers)
+            {
+                Console.Write(i+"\t");
             }
             Console.ReadLine();
         }
